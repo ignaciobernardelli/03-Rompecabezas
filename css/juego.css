@@ -31,6 +31,37 @@ li::before {
   color: #000;
 }
 
+/*Codigo armado por Nacho*/
+#titulo {
+  background-color: #B32943;
+  color:white;
+  font-size: 12px;
+}
+
+#footer {
+  background-color: #252F34;
+  color:#D0EDFD;
+  text-align: center;
+  height: 40px;
+  padding-top: 2px;
+  
+
+}
+
+.col-60 {
+  background: #346571;
+  width: 600px;
+  height: 600px;
+}
+
+.piezas img {
+  width: 33%;
+  height:33%;
+  border:1px solid #346571;
+  float:left;
+}
+/*Fin de codigo*/
+
 #juego div {
 
   text-align: center;

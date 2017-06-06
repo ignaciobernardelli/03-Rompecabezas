@@ -32,10 +32,16 @@ li::before {
 }
 
 /*Codigo armado por Nacho*/
+h3 {
+  color:#B32943;
+}
+
 #titulo {
   background-color: #B32943;
   color:white;
   font-size: 12px;
+  letter-spacing: 4px;
+  text-align: center;
 }
 
 #footer {
@@ -43,9 +49,8 @@ li::before {
   color:#D0EDFD;
   text-align: center;
   height: 40px;
-  padding-top: 2px;
-  
-
+  padding-top: 1px;
+  padding-bottom: 5px;
 }
 
 .col-60 {

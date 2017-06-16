@@ -6,6 +6,12 @@ var grilla = [
   [7, 8, 9]
 ];
 
+var grillaGanadora = [
+  [1,2,3],
+  [4,5,6],
+  [7,8,9]
+];
+
 // Ac&aacute; vamos a ir guardando la posición vacía
 var posicionVacia = {
   fila:2,
@@ -14,6 +20,15 @@ var posicionVacia = {
 
 // Esta función va a chequear si el Rompecabezas est&aacute; en la posición ganadora
 function chequearSiGano(){
+  var posicionCorrecta = 1;
+  for(i=0;i<grilla.length;i++) {
+    for (j=0;j<grilla[i].length;j++) {
+      if (grilla[i][j] == grillaGanadora[i][j]) {
+        posicionCorrecta++;
+      }
+    }
+  }
+  return posicionCorrecta === 10;
 }
 
 
@@ -67,7 +82,7 @@ function moverEnDireccion(direccion){
     // Completar
   }
 
-  // Se chequea si la nueva posición es válida, si lo es, se intercambia 
+  // Se chequea si la nueva posición es válida, si lo es, se intercambia
   if (posicionValida(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia)){
     intercambiarPosiciones(posicionVacia.fila, posicionVacia.columna,
     nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
@@ -98,9 +113,9 @@ function capturarTeclas(){
     var gano = chequearSiGano();
     if(gano){
       setTimeout(function(){
-        mostrarCartelGanador();  
+        mostrarCartelGanador();
       },500);
-    } 
+    }
     evento.preventDefault();
   })
 }

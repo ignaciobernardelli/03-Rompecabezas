@@ -36,11 +36,16 @@ function chequearSiGano(){
 // la hacen los alumnos, pueden mostrar el cartel como prefieran. Pero es importante que usen
 // esta función
 function mostrarCartelGanador(){
+  if (chequearSiGano()) {
+    alert("Ganaste!");
+  }
 }
 
 // Intercambia posiciones grilla y en el DOM
 function intercambiarPosiciones(fila1, columna1, fila2, columna2){
-
+  var posicionActual = grilla[fila1][columna1];
+  grilla[fila1][columna1] = grilla[fila2][columna2];
+  grilla[fila2][columna2] = posicionActual;
 }
 
 // Actualiza la posición de la pieza vacía

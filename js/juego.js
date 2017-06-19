@@ -43,9 +43,18 @@ function mostrarCartelGanador(){
 
 // Intercambia posiciones grilla y en el DOM
 function intercambiarPosiciones(fila1, columna1, fila2, columna2){
-  var posicionActual = grilla[fila1][columna1];
-  grilla[fila1][columna1] = grilla[fila2][columna2];
-  grilla[fila2][columna2] = posicionActual;
+  var p1 = grilla[fila1][columna1];
+  var p2 = grilla[fila2][columna2];
+  //Imagenes de Grilla
+  grilla[fila1][columna1] = p2;
+  grilla[fila2][columna2] = p1;
+  //Elementos del DOM
+  var clonE1 = document.getElementById(p1).cloneNode();
+  var clonE2 = document.getElementById(p2).cloneNode();
+  var padre = document.getElementById(p1).parentNode;
+  padre.replaceChild(clonE2, document.getElementById(p1));
+  padre = document.getElementById(p2).parentNode;
+  padre.replaceChild(clonE1, document.getElementById(p2));
 }
 
 // Actualiza la posición de la pieza vacía

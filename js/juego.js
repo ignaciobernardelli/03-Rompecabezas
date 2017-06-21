@@ -49,12 +49,14 @@ function intercambiarPosiciones(fila1, columna1, fila2, columna2){
   grilla[fila1][columna1] = p2;
   grilla[fila2][columna2] = p1;
   //Elementos del DOM
-  var clonE1 = document.getElementById(p1).cloneNode();
-  var clonE2 = document.getElementById(p2).cloneNode();
-  var padre = document.getElementById(p1).parentNode;
-  padre.replaceChild(clonE2, document.getElementById(p1));
-  padre = document.getElementById(p2).parentNode;
-  padre.replaceChild(clonE1, document.getElementById(p2));
+  var img1 = document.getElementById(p1);
+  var img2 = document.getElementById(p2);
+  var clonE1 = img1.cloneNode();
+  var clonE2 = img2.cloneNode();
+  var padre = img1.parentNode;
+  padre.replaceChild(clonE2, img1);
+  padre = img2.parentNode;
+  padre.replaceChild(clonE1, img2);
 }
 
 // Actualiza la posición de la pieza vacía

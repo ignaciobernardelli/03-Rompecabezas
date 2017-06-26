@@ -29,7 +29,7 @@ function chequearSiGano(){
     }
   }
   return posicionCorrecta === 10;
-}
+};
 
 
 
@@ -60,14 +60,19 @@ function intercambiarPosiciones(fila1, columna1, fila2, columna2){
 }
 
 // Actualiza la posición de la pieza vacía
-function actualizarposicionVacia(nuevaFila,nuevaColumna){
-
+function actualizarPosicionVacia(nuevaFila,nuevaColumna){
+  posicionVacia.fila = nuevaFila;
+  posicionVacia.columna = nuevaColumna;
 }
 
 
 // Para chequear si la posicón está dentro de la grilla.
 function posicionValida(fila, columna){
-
+  if((fila>=0 & columna>=0)&&(fila<=2 & columna<=2)){
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // Movimiento de fichas, en este caso la que se mueve es la blanca intercambiando
@@ -83,19 +88,19 @@ function moverEnDireccion(direccion){
     nuevaColumnaPiezaVacia = posicionVacia.columna;
   }
   // Intercambia pieza blanca con la pieza que está abajo suyo
-  else if (direccion == 38) {
+  else if (direccion == 38){
     nuevaFilaPiezaVacia = posicionVacia.fila+1;
     nuevaColumnaPiezaVacia = posicionVacia.columna;
-
   }
   // Intercambia pieza blanca con la pieza que está a su izq
-  else if (direccion == 39) {
-    // Completar
-
+  else if (direccion == 39){
+    nuevaFilaPiezaVacia = posicionVacia.fila;
+    nuevaColumnaPiezaVacia = posicionVacia.columna-1;
   }
   // Intercambia pieza blanca con la pieza que está a su der
-  else if (direccion == 37) {
-    // Completar
+  else if (direccion == 37){
+    nuevaFilaPiezaVacia = posicionVacia.fila;
+    nuevaColumnaPiezaVacia = posicionVacia.columna+1;
   }
 
   // Se chequea si la nueva posición es válida, si lo es, se intercambia

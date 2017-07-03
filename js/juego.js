@@ -50,13 +50,14 @@ function intercambiarPosiciones(fila1, columna1, fila2, columna2){
   grilla[fila2][columna2] = p1;
   //Elementos del DOM
   var img1 = document.getElementById(p1);
+  var clonImg1 = img1.cloneNode();
+
   var img2 = document.getElementById(p2);
-  var clonE1 = img1.cloneNode();
-  var clonE2 = img2.cloneNode();
+  var clonImg2 = img2.cloneNode();
   var padre = img1.parentNode;
-  padre.replaceChild(clonE2, img1);
+  padre.replaceChild(clonImg2, img1);
   padre = img2.parentNode;
-  padre.replaceChild(clonE1, img2);
+  padre.replaceChild(clonImg1, img2);
 }
 
 // Actualiza la posición de la pieza vacía
@@ -68,7 +69,7 @@ function actualizarPosicionVacia(nuevaFila,nuevaColumna){
 
 // Para chequear si la posicón está dentro de la grilla.
 function posicionValida(fila, columna){
-  if((fila>=0 & columna>=0)&&(fila<=2 & columna<=2)){
+  if((fila >= 0 & columna >= 0) && (fila <= 2 & columna <= 2)){
     return true;
   } else {
     return false;
@@ -84,23 +85,23 @@ function moverEnDireccion(direccion){
 
   // Intercambia pieza blanca con la pieza que está arriba suyo
   if(direccion == 40){
-    nuevaFilaPiezaVacia = posicionVacia.fila-1;
+    nuevaFilaPiezaVacia = posicionVacia.fila + 1;
     nuevaColumnaPiezaVacia = posicionVacia.columna;
   }
   // Intercambia pieza blanca con la pieza que está abajo suyo
   else if (direccion == 38){
-    nuevaFilaPiezaVacia = posicionVacia.fila+1;
+    nuevaFilaPiezaVacia = posicionVacia.fila - 1;
     nuevaColumnaPiezaVacia = posicionVacia.columna;
   }
   // Intercambia pieza blanca con la pieza que está a su izq
   else if (direccion == 39){
     nuevaFilaPiezaVacia = posicionVacia.fila;
-    nuevaColumnaPiezaVacia = posicionVacia.columna-1;
+    nuevaColumnaPiezaVacia = posicionVacia.columna + 1;
   }
   // Intercambia pieza blanca con la pieza que está a su der
   else if (direccion == 37){
     nuevaFilaPiezaVacia = posicionVacia.fila;
-    nuevaColumnaPiezaVacia = posicionVacia.columna+1;
+    nuevaColumnaPiezaVacia = posicionVacia.columna - 1;
   }
 
   // Se chequea si la nueva posición es válida, si lo es, se intercambia
